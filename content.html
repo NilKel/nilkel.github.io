@@ -168,6 +168,18 @@
   .hobby { display: grid; gap: 8px; align-content: start; min-width: 0; padding-top: 14px; border-top: 2px solid var(--ink); }
   .hobby h3 { font-size: var(--step-0); font-weight: 600; }
 
+  .thumb.contain { background: #fff; }
+  .thumb.contain img { object-fit: contain; }
+
+  .gallery { margin: 12px 0 0; display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 12px; }
+  .gallery img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 4px; max-width: 100%; }
+  .gallery .cover { aspect-ratio: 1478 / 2246; max-width: 100%; }
+  .gallery .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: 1fr; gap: 12px; }
+  .gallery a { display: block; }
+  .gallery .grid a { min-height: 0; }
+  .gallery a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  .gallery figcaption { grid-column: 1 / -1; font-family: var(--mono); font-size: 0.78rem; }
+
   footer { border-top: 1px solid var(--line); padding-top: 24px; font-family: var(--mono); font-size: 0.75rem; color: var(--muted); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 
   @media (max-width: 820px) {
@@ -180,6 +192,8 @@
   @media (max-width: 560px) {
     .interests li { grid-template-columns: minmax(0, 1fr); gap: 6px; }
     .hobbies { grid-template-columns: minmax(0, 1fr); }
+    .gallery { grid-template-columns: minmax(0, 1fr); }
+    .gallery .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 180px; }
   }
 
   .thumb.img { border: 1px solid var(--line); background: var(--surface); overflow: hidden; }
@@ -304,11 +318,11 @@
           <div class="plinks"><a href="https://nilkel.github.io/bitymi/">Project page</a><a href="https://arxiv.org/abs/2607.13808">arXiv</a></div>
         </article>
         <article class="project">
-          <a class="thumb img" href="https://arxiv.org/abs/2604.14928"><img src="images/hybrid-latents.jpg" alt="Toy bulldozer scene comparing NeST and Hybrid Latents across a split line"></a>
+          <a class="thumb img contain" href="https://arxiv.org/abs/2604.14928"><img src="images/hybrid-latents.jpg" alt="A chair split into surfel features, grid features and view direction, which a neural decoder turns into the rendered green-and-gold armchair"></a>
           <p class="meta">VMV 2026</p>
           <h3>Hybrid Latents: Geometry-Appearance-Aware Surfel Splatting</h3>
           <p class="authors"><b>Neel Kelkar</b>, Simon Niedermayr, Klaus Engel, Rüdiger Westermann</p>
-          <p>They are latents that are hybrid I think.</p>
+          <p id="hl-joke">They are latents that are hybrid I think.</p>
           <div class="plinks"><a href="https://arxiv.org/abs/2604.14928">arXiv</a></div>
         </article>
       </div>
@@ -367,25 +381,36 @@
   <section id="hobbies">
     <div class="label"><h2>Hobbies</h2></div>
     <div class="content wide">
-      <!-- EDIT: add a specific detail to each, e.g. a favourite piece, book or boss -->
       <div class="hobbies">
         <div class="hobby">
           <h3>Drawing and painting</h3>
-          <p>Oil, acrylic, graphite and charcoal. <span class="ph">A favourite subject or piece.</span></p>
+          <p>Oil, acrylic, graphite and charcoal. A few pieces are below.</p>
         </div>
         <div class="hobby">
           <h3>Fingerstyle guitar</h3>
           <p>I also sing, tolerably. <span class="ph">What you're learning at the moment.</span></p>
         </div>
         <div class="hobby">
-          <h3>Fantasy and manga</h3>
-          <p>An avid reader of both. <span class="ph">A series you'd recommend.</span></p>
+          <h3>Books and manga</h3>
+          <p>Kingkiller Chronicle, Vagabond, A Gentleman in Moscow, Blue Giant Supreme.</p>
         </div>
         <div class="hobby">
           <h3>FromSoftware games</h3>
-          <p>Finished every one of them on PC. <span class="ph">Your favourite, or the boss that took longest.</span></p>
+          <p>Finished every one of them on PC. I beat Isshin by not blinking and repeating the boss fight for three hours.</p>
         </div>
       </div>
+      <figure class="gallery">
+        <a class="cover" href="https://photos.app.goo.gl/x3QHcMeUkQ6fMhvo9"><img src="images/art/life-of-pi.jpg" alt="Painting of a tiger and a boy in a small boat on the sea under a full moon" loading="lazy"></a>
+        <div class="grid">
+          <a href="https://photos.app.goo.gl/x3QHcMeUkQ6fMhvo9"><img src="images/art/blossom-path.jpg" alt="Painted path under a flowering tree, with a dog walking along it" loading="lazy"></a>
+          <a href="https://photos.app.goo.gl/x3QHcMeUkQ6fMhvo9"><img src="images/art/monkey.jpg" alt="Painting of a snow monkey sitting in dark water" loading="lazy"></a>
+          <a href="https://photos.app.goo.gl/x3QHcMeUkQ6fMhvo9"><img src="images/art/crow.jpg" alt="Pencil drawing of a crow" loading="lazy"></a>
+          <a href="https://photos.app.goo.gl/x3QHcMeUkQ6fMhvo9"><img src="images/art/valley.jpg" alt="Painting of a green mountain valley with a blue lake" loading="lazy"></a>
+          <a href="https://photos.app.goo.gl/x3QHcMeUkQ6fMhvo9"><img src="images/art/pianist.jpg" alt="Charcoal drawing of a pianist in a beam of light" loading="lazy"></a>
+          <a href="https://photos.app.goo.gl/x3QHcMeUkQ6fMhvo9"><img src="images/art/dog-sketch.jpg" alt="Pencil sketch of a dog" loading="lazy"></a>
+        </div>
+        <figcaption><a href="https://photos.app.goo.gl/x3QHcMeUkQ6fMhvo9">See the full album ↗</a></figcaption>
+      </figure>
     </div>
   </section>
 
@@ -496,10 +521,16 @@
   })();
 </script>
 <script>
-  // BITYMI blurb: a different joke on each visit
+  // Paper blurbs: a different joke on each visit
   (() => {
     const jokes = ['Fast affff boiii', "Acronym: BITYMI-USTAS, or BITYMI if you're on a first-name basis", 'Omae wa mo splatted'];
-    document.getElementById('bitymi-joke').textContent = jokes[Math.floor(Math.random() * jokes.length)];
+    const pick = list => list[Math.floor(Math.random() * list.length)];
+    document.getElementById('bitymi-joke').textContent = pick(jokes);
+    document.getElementById('hl-joke').textContent = pick([
+      'They are latents that are hybrid I think.',
+      'Fuuuuusioooon HAsh',
+      "I've seen this chair more than I've seen my family",
+    ]);
   })();
 </script>
 <script type="module" src="portal/portal.js"></script>
