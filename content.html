@@ -148,10 +148,8 @@
 
   .about-text { display: grid; gap: 16px; min-width: 0; }
 
-  .interests { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
-  .interests li { display: grid; grid-template-columns: minmax(0, 14rem) minmax(0, 1fr); gap: 20px; padding-block: 16px; border-bottom: 1px solid var(--line); }
-  .interests li:first-child { padding-top: 0; }
-  .interests h3 { font-size: var(--step-0); font-weight: 600; }
+  .interests { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+  .interests li { font-family: var(--display); font-weight: 600; border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 6px 14px; }
 
   .projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
   .project { display: grid; gap: 10px; align-content: start; min-width: 0; }
@@ -192,7 +190,6 @@
     .hobbies { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
   @media (max-width: 560px) {
-    .interests li { grid-template-columns: minmax(0, 1fr); gap: 6px; }
     .hobbies { grid-template-columns: minmax(0, 1fr); }
     .gallery { grid-template-columns: minmax(0, 1fr); }
     .gallery .grid { grid-template-rows: 200px 240px; }
@@ -284,24 +281,14 @@
   <section id="research">
     <div class="label"><h2>Research interests</h2></div>
     <div class="content">
-      <p>I'm interested in how a 3D scene should be stored so that it renders well on the hardware people already have.</p>
       <ul class="interests">
-        <li>
-          <h3>Splat-based scene representations</h3>
-          <p>Gaussian and surfel splatting with richer primitives: per-primitive latent features, hash grids, and texture atlases.</p>
-        </li>
-        <li>
-          <h3>Real-time rendering</h3>
-          <p>Baking learned appearance into formats the GPU samples natively, so rendering needs no neural network at inference. Hardware rasterization, mobile GPUs and XR headsets.</p>
-        </li>
-        <li>
-          <h3>Compression</h3>
-          <p>Compact neural representations for large data, including synchrotron scans that run to 120 GB each.</p>
-        </li>
-        <li>
-          <h3>Medical and scientific visualization</h3>
-          <p>Reconstruction and rendering for clinical data, from intraoperative microscopy to cancer imaging.</p>
-        </li>
+        <li>Radiance Fields</li>
+        <li>Sparse 3D Reconstruction</li>
+        <li>Gaussian Splatting</li>
+        <li>Fast Rendering</li>
+        <li>Wasps</li>
+        <li>Medical Visualization</li>
+        <li>3D Compression</li>
       </ul>
     </div>
   </section>
