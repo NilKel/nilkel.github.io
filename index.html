@@ -95,7 +95,7 @@
   }
   /* The BITYMI portal's own DOM (ids are fixed by portal.js) */
   #frame, #window { position: absolute; inset: 0; }
-  #window { background: #1b1c1f url("images/neel-opera-poster.jpg") center / cover no-repeat; }
+  #window { background: #1b1c1f url("images/neel-opera-v2-poster.jpg") center / cover no-repeat; }
   #webgpu-canvas {
     position: absolute; inset: 0; width: 100%; height: 100%; display: block; opacity: 0;
     transition: opacity .6s ease; touch-action: none; user-select: none; -webkit-user-select: none; cursor: grab;
@@ -491,9 +491,9 @@
     try { gpu = localStorage.getItem('portal-renderer') === 'webgpu'; } catch (e) {}
     if (location.hash === '#webgpu') gpu = true;
     const qs = new URLSearchParams({
-      bundle: 'portal/neel_opera_e3rd.bitymi',
-      astc: 'portal/neel_opera_e3rd_astc.bitymi',
-      poster: 'images/neel-opera-poster.jpg',
+      bundle: 'portal/neel_opera_v2_e3rd.bitymi',
+      astc: 'portal/neel_opera_v2_e3rd_astc.bitymi',
+      poster: 'images/neel-opera-v2-poster.jpg',
       renderer: gpu ? 'webgpu' : 'webgl',
       frame: 'fill', ui: '0', idle: '1',
     });
