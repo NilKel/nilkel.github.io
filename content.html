@@ -194,6 +194,16 @@
   .rows h3 { font-size: var(--step-0); font-weight: 600; }
   .rows .sub { color: var(--muted); font-size: 0.98rem; }
   .rows p + p { margin-top: 4px; }
+  .earlier summary {
+    cursor: pointer; font-family: var(--mono); font-size: 0.8rem; color: var(--muted);
+    list-style: none; display: inline-flex; align-items: center; gap: 8px; padding-block: 4px;
+  }
+  .earlier summary::-webkit-details-marker { display: none; }
+  .earlier summary::before { content: "+"; display: inline-block; width: 1ch; color: var(--accent); }
+  .earlier[open] summary::before { content: "−"; }
+  .earlier summary:hover { color: var(--ink); }
+  .earlier summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  .earlier[open] summary { margin-bottom: 16px; }
   .subhead { font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-top: 12px; }
   @media (max-width: 560px) {
     .rows li { grid-template-columns: minmax(0, 1fr); gap: 4px; }
@@ -207,6 +217,7 @@
       <a href="#about">about</a>
       <a href="#research">research</a>
       <a href="#projects">projects</a>
+      <a href="#education">education</a>
       <a href="#experience">experience</a>
       <a href="#hobbies">hobbies</a>
     </nav>
@@ -215,7 +226,7 @@
   <div class="hero">
     <div>
       <h1>Neel Kelkar</h1>
-      <p class="role">PhD candidate at the Technical University of Munich and Siemens Healthineers, working on 3D scene representations that render in real time.</p>
+      <p class="role">PhD candidate at the Technical University of Munich and Siemens Healthineers, working on sparse 3D reconstruction.</p>
       <!-- EDIT: Scholar and CV links are still "#" -->
       <div class="links">
         <a href="mailto:neel.kelkar@tum.de">neel.kelkar@tum.de</a>
@@ -248,10 +259,9 @@
     <div class="label"><h2>About</h2></div>
     <div class="content">
         <div class="about-text">
-          <p>I'm a PhD candidate in computer science at the Technical University of Munich, in the Computer Graphics and Visualization group of Prof. Rüdiger Westermann. My PhD is a collaboration with Siemens Healthineers, where I work with Dr. Klaus Engel. I build 3D scene representations, mostly Gaussian and surfel splats, that stay compact and render fast on ordinary GPUs, phones and headsets.</p>
+          <p>I'm a PhD candidate in computer science under the supervision of Prof. Rüdiger Westermann at the Technical University of Munich, and Dr. Klaus Engel at Siemens Healthineers. I am developing sparse textured radiance fields to render large-scale medical data.</p>
           <p>Before Munich, I did an MSc in Visual Computing at Saarland University and wrote my thesis at the Max Planck Institute for Informatics with Dr. Jan Eric Lenssen, on real-time neural point radiance fields. I also hold an MS in Machine Learning and Signal Processing from the University of Wisconsin–Madison and a BE in Electronics and Telecommunication from MIT Pune. In 2024 I spent six months at Carl Zeiss working on 3D reconstruction for surgical microscopy.</p>
-          <!-- EDIT: say what you're open to -->
-          <p><span class="ph">What you're open to right now: collaborations, internships, talks, or just email about the work.</span></p>
+          <p>I'm currently going down the rabbit hole of sparse, explicit radiance field representations. I hope to push textured 3D splatting to its limits in terms of speed, compression, and quality.</p>
         </div>
     </div>
   </section>
@@ -290,7 +300,7 @@
           <p class="meta">Preprint · arXiv 2026</p>
           <h3>Bake It Till You Make It: Ultrafast Spatial Texture-Atlas Splatting</h3>
           <p class="authors"><b>Neel Kelkar</b>, Simon Niedermayr, Kaloian Petkov, Klaus Engel, Rüdiger Westermann</p>
-          <p>We make each splat's texture view-independent so it can be baked into a compressed GPU texture atlas. Rendering is then plain texture sampling, which runs at well over 1,000 FPS on an RTX 5090 and is also real-time on mobile GPUs.</p>
+          <p id="bitymi-joke">Fast affff boiii</p>
           <div class="plinks"><a href="https://nilkel.github.io/bitymi/">Project page</a><a href="https://arxiv.org/abs/2607.13808">arXiv</a></div>
         </article>
         <article class="project">
@@ -298,61 +308,21 @@
           <p class="meta">VMV 2026</p>
           <h3>Hybrid Latents: Geometry-Appearance-Aware Surfel Splatting</h3>
           <p class="authors"><b>Neel Kelkar</b>, Simon Niedermayr, Klaus Engel, Rüdiger Westermann</p>
-          <p>Each surfel carries its own latent feature alongside a shared hash grid. The per-surfel latent holds low-frequency appearance, avoids hash collisions and tightens geometry, matching NeST with a hash table about four times smaller.</p>
+          <p>They are latents that are hybrid I think.</p>
           <div class="plinks"><a href="https://arxiv.org/abs/2604.14928">arXiv</a></div>
         </article>
       </div>
+    </div>
+  </section>
 
-      <h3 class="subhead">Earlier work</h3>
+  <section id="education">
+    <div class="label"><h2>Education</h2></div>
+    <div class="content">
       <ul class="rows">
-        <li>
-          <span class="when">2022–2024</span>
-          <div>
-            <h3>Real-time neural point radiance fields</h3>
-            <p class="sub">MSc thesis · Max Planck Institute for Informatics</p>
-            <p>Custom CUDA kernels with a local hash-grid representation, plus B-spline interpolation and super-resolution, for over 100× speedup over the baseline.</p>
-          </div>
-        </li>
-        <li>
-          <span class="when">2021–2022</span>
-          <div>
-            <h3>Differentiable point cloud instance segmentation</h3>
-            <p class="sub">Research assistant · Max Planck Institute for Informatics</p>
-            <p>An end-to-end differentiable pipeline built around a graph-based asymmetric multiway cut solver.</p>
-          </div>
-        </li>
-        <li>
-          <span class="when">2022–2023</span>
-          <div>
-            <h3>C++ ray tracer</h3>
-            <p class="sub">Computer Graphics course · Saarland University</p>
-            <p>A-tier finish in the course's rendering competition. <a href="#">Project page</a> · <a href="#">Code</a></p>
-          </div>
-        </li>
-        <li>
-          <span class="when">2020</span>
-          <div>
-            <h3>Gaze-driven refocusing from monocular video</h3>
-            <p class="sub">Capstone project · UW–Madison</p>
-            <p>Depth maps estimated from monocular video, then used with eye tracking to refocus the video where the viewer looks. <a href="https://github.com/NilKel/Dynamic-Depth-of-Field-with-Eye-Tracking">Code</a></p>
-          </div>
-        </li>
-        <li>
-          <span class="when">2019</span>
-          <div>
-            <h3>Watermark extraction from historic documents</h3>
-            <p class="sub">Image processing course · UW–Madison</p>
-            <p>Removes ink artifacts from page scans to recover watermarks. Ranked first in the class competition. <a href="https://github.com/NilKel/Watermark-Recognition">Code</a></p>
-          </div>
-        </li>
-        <li>
-          <span class="when">2018</span>
-          <div>
-            <h3>Bone-age estimation from hand X-rays</h3>
-            <p class="sub">Bachelor thesis · MIT Pune</p>
-            <p>A U-Net, VGG16 and DenseNet121 pipeline that estimates a child's skeletal maturity, sponsored by India's Department of Science and Technology.</p>
-          </div>
-        </li>
+        <li><span class="when">2024–now</span><div><h3>Doctorate, Computer Science</h3><p class="sub">Technical University of Munich</p></div></li>
+        <li><span class="when">2021–2024</span><div><h3>MSc, Visual Computing</h3><p class="sub">Saarland University</p></div></li>
+        <li><span class="when">2019–2020</span><div><h3>MS, Machine Learning and Signal Processing</h3><p class="sub">University of Wisconsin–Madison</p></div></li>
+        <li><span class="when">2014–2018</span><div><h3>BE, Electronics and Telecommunication</h3><p class="sub">Maharashtra Institute of Technology, Pune</p></div></li>
       </ul>
     </div>
   </section>
@@ -391,14 +361,6 @@
           </div>
         </li>
       </ul>
-
-      <h3 class="subhead">Education</h3>
-      <ul class="rows">
-        <li><span class="when">2024–now</span><div><h3>Doctorate, Computer Science</h3><p class="sub">Technical University of Munich</p></div></li>
-        <li><span class="when">2021–2024</span><div><h3>MSc, Visual Computing</h3><p class="sub">Saarland University</p></div></li>
-        <li><span class="when">2019–2020</span><div><h3>MS, Machine Learning and Signal Processing</h3><p class="sub">University of Wisconsin–Madison</p></div></li>
-        <li><span class="when">2014–2018</span><div><h3>BE, Electronics and Telecommunication</h3><p class="sub">Maharashtra Institute of Technology, Pune</p></div></li>
-      </ul>
     </div>
   </section>
 
@@ -424,6 +386,65 @@
           <p>Finished every one of them on PC. <span class="ph">Your favourite, or the boss that took longest.</span></p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section id="earlier">
+    <div class="label"><h2>Earlier work</h2></div>
+    <div class="content">
+      <details class="earlier">
+        <summary>Show six earlier projects</summary>
+        <ul class="rows">
+          <li>
+            <span class="when">2022–2024</span>
+            <div>
+              <h3>Real-time neural point radiance fields</h3>
+              <p class="sub">MSc thesis · Max Planck Institute for Informatics</p>
+              <p>Custom CUDA kernels with a local hash-grid primitive, B-spline interpolation, and super-resolution, for real-time, point-based rendering with a screen-space decoder.</p>
+            </div>
+          </li>
+          <li>
+            <span class="when">2021–2022</span>
+            <div>
+              <h3>Differentiable point cloud instance segmentation</h3>
+              <p class="sub">Research assistant · Max Planck Institute for Informatics</p>
+              <p>An end-to-end differentiable pipeline built around a graph-based asymmetric multiway cut solver.</p>
+            </div>
+          </li>
+          <li>
+            <span class="when">2022–2023</span>
+            <div>
+              <h3>C++ ray tracer</h3>
+              <p class="sub">Computer Graphics course · Saarland University</p>
+              <p>A-tier finish in the course's rendering competition. Carried hard in the ray tracer by Soumava Paul. Scene based on a nightmarish deadline. <a href="#">Project page</a> · <a href="#">Code</a></p>
+            </div>
+          </li>
+          <li>
+            <span class="when">2020</span>
+            <div>
+              <h3>Gaze-driven refocusing from monocular video</h3>
+              <p class="sub">Capstone project · UW–Madison</p>
+              <p>Depth maps estimated from monocular video, then used with eye tracking to refocus the video where the viewer looks. <a href="https://github.com/NilKel/Dynamic-Depth-of-Field-with-Eye-Tracking">Code</a></p>
+            </div>
+          </li>
+          <li>
+            <span class="when">2019</span>
+            <div>
+              <h3>Watermark extraction from historic documents</h3>
+              <p class="sub">Image processing course · UW–Madison</p>
+              <p>Removes ink artifacts from page scans to recover watermarks. Ranked first in the class competition. <a href="https://github.com/NilKel/Watermark-Recognition">Code</a></p>
+            </div>
+          </li>
+          <li>
+            <span class="when">2018</span>
+            <div>
+              <h3>Bone-age estimation from hand X-rays</h3>
+              <p class="sub">Bachelor thesis · MIT Pune</p>
+              <p>A U-Net, VGG16 and DenseNet121 pipeline that estimates a child's skeletal maturity, sponsored by India's Department of Science and Technology.</p>
+            </div>
+          </li>
+        </ul>
+      </details>
     </div>
   </section>
 
@@ -472,6 +493,13 @@
       gpuBtn.textContent = navigator.gpu ? label(e.detail.backend) : 'WebGL';
       applyTex();
     });
+  })();
+</script>
+<script>
+  // BITYMI blurb: a different joke on each visit
+  (() => {
+    const jokes = ['Fast affff boiii', "Acronym: BITYMI-USTAS, or BITYMI if you're on a first-name basis", 'Omae wa mo splatted'];
+    document.getElementById('bitymi-joke').textContent = jokes[Math.floor(Math.random() * jokes.length)];
   })();
 </script>
 <script type="module" src="portal/portal.js"></script>
