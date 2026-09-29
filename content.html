@@ -174,9 +174,11 @@
   .gallery { margin: 12px 0 0; display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 12px; }
   .gallery img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 4px; max-width: 100%; }
   .gallery .cover { aspect-ratio: 1478 / 2246; max-width: 100%; }
-  .gallery .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: 1fr; gap: 12px; }
+  .gallery .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: minmax(0, 1fr) minmax(0, 1.3fr); gap: 12px; }
+  .gallery .grid .wide { grid-column: 1 / -1; }
   .gallery a { display: block; }
-  .gallery .grid a { min-height: 0; }
+  .gallery .grid a { min-height: 0; position: relative; }
+  .gallery .grid img { position: absolute; inset: 0; }
   .gallery a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
   .gallery figcaption { grid-column: 1 / -1; font-family: var(--mono); font-size: 0.78rem; }
 
@@ -193,7 +195,7 @@
     .interests li { grid-template-columns: minmax(0, 1fr); gap: 6px; }
     .hobbies { grid-template-columns: minmax(0, 1fr); }
     .gallery { grid-template-columns: minmax(0, 1fr); }
-    .gallery .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 180px; }
+    .gallery .grid { grid-template-rows: 200px 240px; }
   }
 
   .thumb.img { border: 1px solid var(--line); background: var(--surface); overflow: hidden; }
@@ -402,12 +404,9 @@
       <figure class="gallery">
         <a class="cover" href="https://photos.app.goo.gl/x3QHcMeUkQ6fMhvo9"><img src="images/art/life-of-pi.jpg" alt="Painting of a tiger and a boy in a small boat on the sea under a full moon" loading="lazy"></a>
         <div class="grid">
-          <a href="https://photos.app.goo.gl/x3QHcMeUkQ6fMhvo9"><img src="images/art/blossom-path.jpg" alt="Painted path under a flowering tree, with a dog walking along it" loading="lazy"></a>
-          <a href="https://photos.app.goo.gl/x3QHcMeUkQ6fMhvo9"><img src="images/art/monkey.jpg" alt="Painting of a snow monkey sitting in dark water" loading="lazy"></a>
-          <a href="https://photos.app.goo.gl/x3QHcMeUkQ6fMhvo9"><img src="images/art/crow.jpg" alt="Pencil drawing of a crow" loading="lazy"></a>
-          <a href="https://photos.app.goo.gl/x3QHcMeUkQ6fMhvo9"><img src="images/art/valley.jpg" alt="Painting of a green mountain valley with a blue lake" loading="lazy"></a>
-          <a href="https://photos.app.goo.gl/x3QHcMeUkQ6fMhvo9"><img src="images/art/pianist.jpg" alt="Charcoal drawing of a pianist in a beam of light" loading="lazy"></a>
-          <a href="https://photos.app.goo.gl/x3QHcMeUkQ6fMhvo9"><img src="images/art/dog-sketch.jpg" alt="Pencil sketch of a dog" loading="lazy"></a>
+          <a class="wide" href="https://photos.app.goo.gl/x3QHcMeUkQ6fMhvo9"><img src="images/art/ladakh.jpg" alt="Painting of a green valley below brown mountains in Ladakh" loading="lazy"></a>
+          <a href="https://photos.app.goo.gl/x3QHcMeUkQ6fMhvo9"><img src="images/art/mau-watercolor.jpg" alt="Watercolour portrait of a smiling woman in a brown coat" loading="lazy"></a>
+          <a href="https://photos.app.goo.gl/x3QHcMeUkQ6fMhvo9"><img src="images/art/jacob-collier.jpg" alt="Charcoal drawing of Jacob Collier at a piano in a beam of light" loading="lazy"></a>
         </div>
         <figcaption><a href="https://photos.app.goo.gl/x3QHcMeUkQ6fMhvo9">See the full album ↗</a></figcaption>
       </figure>
